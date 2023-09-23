@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ProcessoSeletivo {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
-        double salarioBase = 2000.00;
+        double salarioBase = 2200.00;
         double salarioProposto;
         String nome;
         Candidatos novoCandidato = new Candidatos();
@@ -29,7 +29,7 @@ public class ProcessoSeletivo {
                     nome = scn.next();
                     System.out.println("Insira seu salario proposto: ");
                     salarioProposto = scn.nextDouble();
-
+                    
                     novoCandidato = new Candidatos(nome, salarioProposto);
                     lista_Candidatos.recebeCandidatos(novoCandidato);
 
@@ -38,13 +38,10 @@ public class ProcessoSeletivo {
 
                 case 2:
 
-                    lista_Candidatos.ListaCand();
+                    lista_Candidatos.listarCandidatosGeral();
                     break;
 
-                case 3: 
-
-
-
+                default:
             }
         } while (opcao != 0);
         scn.close();

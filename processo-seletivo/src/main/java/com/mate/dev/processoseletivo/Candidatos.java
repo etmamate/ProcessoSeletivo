@@ -48,4 +48,7 @@ public class Candidatos {
             System.out.println("Ligar para o candidato" + this.nome + "com uma contra proposta \n");
         }
     }
+
+    public void listarCandidatosGeral() {
+    }
 }
