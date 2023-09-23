@@ -1,45 +1,52 @@
 package com.mate.dev.processoseletivo;
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Scanner;
 
 public class ProcessoSeletivo {
     public static void main(String[] args) {
-        selecaoCandidatos();
-
-    }
-
-    static void selecaoCandidatos() {
-        String[] candidatos = { "MATEUS", "ANA", "JULIA", "FERNANDO", "TOMAS", "PEDRO", "MAURICIO", "VITOR", "DANNILO",
-                "RODRIGO" };
-        int candidatosSelecionados = 0;
-        int candidatosAtual = 0;
-        double salarioBase = 2000;
-        while (candidatosSelecionados < 5 && candidatosAtual < candidatos.length) {
-            String canditado = candidatos[candidatosAtual];
-            double salarioPretendido = valorPretendido();
-
-            System.out.println("O CANDIDATO " + canditado + " Solicitou esse valor de salario: " + salarioPretendido);
-            if (salarioBase >= salarioPretendido) {
-                System.out.println("O Candidato " + canditado + " foi selecionado para a vaga");
-                candidatosSelecionados++;
-            }
-            candidatosAtual++;
-        }
-    }
-
-    static void analisarCandidato(double salarioPretendido) {
+        Scanner scn = new Scanner(System.in);
         double salarioBase = 2000.00;
-        if (salarioBase > salarioPretendido) {
-            System.out.println("LIGAR PARA O CANDIDATO");
-        } else if (salarioBase == salarioPretendido) {
-            System.out.println("LIGAR PARA O CANDIDATO COM UMA CONTRA PROPOSTA");
-        } else {
-            System.out.println("AGUARDANDO RESULTADO DOS DEMAIS CANDIDATOS");
-        }
+        double salarioProposto;
+        String nome;
+        Candidatos novoCandidato = new Candidatos();
+        ListaCandidatos lista_Candidatos = new ListaCandidatos();
+        int opcao;
+        String breakline = "-".repeat(12);
 
-    }
+        do {
+            System.out.println("Processo Seletivo - ");
+            System.out.println(breakline);
+            System.out.println("1 - Cadastrar Candidato");
+            System.out.println("2 - Listar Canditatos");
+            System.out.println("3 - Mostrar Situação do Processo de Candidato");
+            System.out.println("0 - Sair");
+            System.out.println(breakline);
+            opcao = scn.nextInt();
+            switch (opcao) {
+                case 1:
 
-    static double valorPretendido() {
-        return ThreadLocalRandom.current().nextDouble(1800, 2200);
+                    System.out.println("Insira o nome do candidato: ");
+                    nome = scn.next();
+                    System.out.println("Insira seu salario proposto: ");
+                    salarioProposto = scn.nextDouble();
+
+                    novoCandidato = new Candidatos(nome, salarioProposto);
+                    lista_Candidatos.recebeCandidatos(novoCandidato);
+
+                    System.out.println("Candidato Cadastrado!");
+                    break;
+
+                case 2:
+
+                    lista_Candidatos.ListaCand();
+                    break;
+
+                case 3: 
+
+
+
+            }
+        } while (opcao != 0);
+        scn.close();
     }
 }
