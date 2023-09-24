@@ -31,20 +31,21 @@ public class Candidatos {
     }
 
     void listar() {
-        System.out.println("\nNome: " + this.nome);
+        System.out.println("\nNome: " + this.nome +" R$"+this.salarioProposto);
+    }
+
+    void listarAprovados() {
+        System.out.println(nome + " Situação: Aprovado");
     }
 
     void Aprovados() {
-        if (salarioProposto < salarioBase) {
+        if (salarioBase > salarioProposto) {
             System.out.println("Ligar para o candidato " + this.nome + " APROVADO!\n");
         }
     }
 
-    void listarAprovados(){
-        System.out.println(nome + " Situação: Aprovado" );
-    }
     void contraProposta() {
-        if (salarioProposto > salarioBase) {
+        if (salarioProposto == salarioBase) {
             System.out.println("Ligar para o candidato" + this.nome + "com uma contra proposta \n");
         }
     }

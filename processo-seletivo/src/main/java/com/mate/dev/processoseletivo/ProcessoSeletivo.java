@@ -18,7 +18,9 @@ public class ProcessoSeletivo {
             System.out.println(breakline);
             System.out.println("1 - Cadastrar Candidato");
             System.out.println("2 - Listar Canditatos");
-            System.out.println("3 - Mostrar Situação do Processo de Candidato");
+            System.out.println("3 - Candidatos Aprovados");
+            System.out.println("4 - Candidatos para enviar uma Contra Proposta");
+            System.out.println("5 - Candidadtos Aguardando o Resultado dos Demais");
             System.out.println("0 - Sair");
             System.out.println(breakline);
             opcao = scn.nextInt();
@@ -29,17 +31,23 @@ public class ProcessoSeletivo {
                     nome = scn.next();
                     System.out.println("Insira seu salario proposto: ");
                     salarioProposto = scn.nextDouble();
-                    
+
                     novoCandidato = new Candidatos(nome, salarioProposto);
                     lista_Candidatos.recebeCandidatos(novoCandidato);
 
-                    System.out.println("Candidato Cadastrado!");
                     break;
 
                 case 2:
-
                     lista_Candidatos.listarCandidatosGeral();
                     break;
+
+                case 3:
+                    lista_Candidatos.candidatoAprovado();
+                    break;
+                case 4:
+                    lista_Candidatos.candidatoContraproposta();
+                    break;
+                case 5:
 
                 default:
             }
