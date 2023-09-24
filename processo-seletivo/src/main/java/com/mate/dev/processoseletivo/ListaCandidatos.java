@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class ListaCandidatos {
     ArrayList<Candidatos> listaCandidatos = new ArrayList<>(5);
+    
     int maximo = 10;
     int maximo_aprovados = 5;
 
@@ -22,7 +23,7 @@ public class ListaCandidatos {
     void listarCandidatosGeral() {
         System.out.println("Candidatos Registrados: ");
         for (Candidatos listarCandidatos : listaCandidatos) {
-            listarCandidatos.listarCandidatosGeral();
+            listarCandidatos.listar();
         }
     }
 

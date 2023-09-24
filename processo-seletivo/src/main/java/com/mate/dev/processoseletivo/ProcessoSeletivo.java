@@ -14,7 +14,7 @@ public class ProcessoSeletivo {
         String breakline = "-".repeat(12);
 
         do {
-            System.out.println("Processo Seletivo - ");
+            System.out.println("\n Processo Seletivo - ");
             System.out.println(breakline);
             System.out.println("1 - Cadastrar Candidato");
             System.out.println("2 - Listar Canditatos");
